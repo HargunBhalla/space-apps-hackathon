@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Space Apps Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-3" >Hello Space 👽 🚀 🛰 🌎</h1>
+  </div>
+  <div>
+    <button id="water" class="button blue">Hydration</button>
+    <button id="sleep" class="button black">Fatigue</button>
+    <button id="iron" class="button red">Elevated Biometrics</button>
+  </div>
+  <div class="chart-container">
+    <canvas id="chart1"></canvas>
+    <canvas id="chart2"></canvas>
+  </div>
+  <div class="chart-container">
+    <canvas id="chart3"></canvas>
+    <canvas id="chart4"></canvas>
+  </div>
+    <script>
+        var ctx = document.getElementById("chart1");
+        var chart1 = new Chart(ctx, {
+            type: 'bar',
+            data: <%-JSON.stringify(dataPoints1)%>,
+            options: <%-JSON.stringify(dataPoints1.options)%>
+        });
+
+        var ctx2 = document.getElementById("chart2");
+        var chart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: <%-JSON.stringify(dataPoints2)%>,
+            options: <%-JSON.stringify(dataPoints2.options)%>
+        });
+
+        var ctx3 = document.getElementById("chart3");
+        var chart3 = new Chart(ctx3, {
+            type: 'line',
+            data: <%-JSON.stringify(dataPoints3)%>,
+            options: <%-JSON.stringify(dataPoints3.options)%>
+        });
+
+        var ctx4 = document.getElementById("chart4");
+        var chart4 = new Chart(ctx4, {
+            type: 'radar',
+            data: <%-JSON.stringify(dataPoints4)%>,
+            options: <%-JSON.stringify(dataPoints4.options)%>
+        });
+    </script>
+  </div>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">x</span>
+            <h1 class="modal-text"></h1>
+        </div>
+    </div>
+  </body>
+</html>
